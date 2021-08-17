@@ -16,9 +16,11 @@ const RecetasProvider = (props) => {
     useEffect(() => {
         if(consultar){
             const obtenerRecetas = async () => {
-                const url = `https://api.punkapi.com/v2/beers?beer_name=${nombre}&food=${categoria}`
-            
-                console.log(url)
+                const url = `https://www.freetogame.com/api/games?platform=${nombre}&category=${categoria}`
+                
+                const resultado = await axios.get(url);
+                // console.log(resultado)
+                guardarRecetas(resultado);
             }
             obtenerRecetas();  
         }
@@ -28,6 +30,7 @@ const RecetasProvider = (props) => {
     return ( 
         <RecetasContext.Provider
             value={{
+                recetas,
                 buscarRecetas,
                 guardarConsultar   
             }}

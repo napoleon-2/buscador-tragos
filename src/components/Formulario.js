@@ -20,7 +20,7 @@ const Formulario = () => {
             [e.target.name] : e.target.value
         })
     }
-    console.log(categorias)
+    
     return ( 
         <form className="col-12"
               onSubmit={e => {
@@ -30,7 +30,7 @@ const Formulario = () => {
               }}
         >
             <fieldset className="text-center">
-                <legend>Busca bebidas por Categoria o Ingrediente</legend>
+                <legend className="text-center">Busca Recetas por Ingredientes</legend>
             </fieldset>
 
             <div className="row mt-4">
@@ -39,7 +39,7 @@ const Formulario = () => {
                         name="nombre"
                         className="form-control"
                         type="text"
-                        placeholder="Buscar por nombre"
+                        placeholder="Buscar por plataforma"
                         onChange={obtenerDatos}
                     />
                 </div>
@@ -54,9 +54,9 @@ const Formulario = () => {
                           Seleccione Categoria
                       </option>
                       {categorias.map(categoria => (
-                          <option key={categoria.tagline}
-                                  value={categoria.tagline} 
-                           >{categoria.tagline}</option>       
+                          <option key={categorias.data}
+                                  value={categorias.data} 
+                           >{categorias.data}</option>       
                       ))}      
                     </select>
                 </div>
@@ -65,7 +65,7 @@ const Formulario = () => {
                     <input 
                         type="submit"
                         className="btn btn-block btn-primary"
-                        value="Buscar Tragos"
+                        value="Buscar Recetas"
                     />
                 </div>
             </div>

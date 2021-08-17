@@ -7,14 +7,15 @@ export const CategoriasContext = createContext();
 
 const CategoriasProvider = (props) => {
     //crear el state del context
-    const [categorias, guardatCategorias] = useState([]);
+    const [categorias, guardarCategorias] = useState([]);
     //ejecutar el llamado a la api
     useEffect(() => {
         const obtenerCategorias = async () => {
-            const url = 'https://api.punkapi.com/v2/beers'
+            const url = 'https://www.freetogame.com/api/games'
         
             const categorias = await Axios.get(url);
-            guardatCategorias(categorias.data)
+            guardarCategorias(categorias.data[0])
+            // console.log(categorias.data[0])
         }
         obtenerCategorias();
     }, [])
